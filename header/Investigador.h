@@ -1,3 +1,6 @@
+#ifndef INVESTIGADOR_H
+#define INVESTIGADOR_H
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -32,3 +35,4 @@ public:
     void setPublicaciones(vector<Publicacion> publicaciones);
 };
 
+#endif // INVESTIGADOR_H

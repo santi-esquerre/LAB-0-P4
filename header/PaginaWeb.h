@@ -1,3 +1,6 @@
+#ifndef PAGINAWEB_H
+#define PAGINAWEB_H
+
 #include "Publicacion.h"
 
 class PaginaWeb : public Publicacion
@@ -15,3 +18,5 @@ public:
     void setURL(string URL) ;
     void setContenidoExtraido(string contenidoExtraido) ;
 };
+
+#endif // PAGINAWEB_H

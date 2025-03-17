@@ -1,3 +1,6 @@
+#ifndef PUBLICACION_H
+#define PUBLICACION_H
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -34,3 +37,4 @@ public:
     void setAutores(vector<Investigador> autores);
 };
 
+#endif // PUBLICACION_H

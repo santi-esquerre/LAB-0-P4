@@ -1,3 +1,5 @@
+#ifndef DTFECHA_H
+#define DTFECHA_H
 class DTFecha
 {
 private:
@@ -13,3 +15,5 @@ public:
     int getMes();
     int getAnio();
 };
+
+#endif // DTFECHA_H

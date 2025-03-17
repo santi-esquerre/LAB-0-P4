@@ -1,3 +1,6 @@
+#ifndef DTREFER_H
+#define DTREFER_H
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -24,3 +27,4 @@ public:
     vector<string> getAutores();
 };
 
+#endif // DTREFER_H

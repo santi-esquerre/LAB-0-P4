@@ -1,3 +1,6 @@
+#ifndef LIBRO_H
+#define LIBRO_H
+
 #include "Publicacion.h"
 
 class Libro : public Publicacion
@@ -16,3 +19,5 @@ public:
     void setEditorial(string editorial);
     void setPalabrasDestacadas(vector<string> palabrasDestacadas);
 };
+
+#endif // LIBRO_H

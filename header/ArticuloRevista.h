@@ -1,3 +1,6 @@
+#ifndef ARTICULOREVISTA_H
+#define ARTICULOREVISTA_H
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -23,3 +26,5 @@ public:
     void setRevista(string revista);
     void setExtracto(string extracto);
 };
+
+#endif // ARTICULOREVISTA_H
