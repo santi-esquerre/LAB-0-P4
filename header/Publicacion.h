@@ -3,10 +3,11 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
+#include <set>
 #include "DTFecha.h"
 #include "DTRefer.h"
-#include "Investigador.h"
+
+class Investigador;
 
 using namespace std;
 
@@ -15,26 +16,26 @@ class Publicacion
 protected:
     string DOI, titulo;
     DTFecha fecha;
-    vector<Investigador> autores;
+    set<Investigador*> autores;
 public:
     Publicacion(string DOI, string titulo, DTFecha fecha);
     Publicacion();
-    ~Publicacion();
+    virtual ~Publicacion();
 
-    virtual DTRefer getDT();
-    virtual bool contienePalabra(string palabra);
+    virtual DTRefer getDT() = 0;
+    virtual bool contienePalabra(string palabra) = 0;
 
     //Getters
     string getDOI();
     string getTitulo();
     DTFecha getFecha();
-    vector<Investigador> getAutores();
+    set<Investigador*> getAutores();
 
     //Setters
     void setDOI(string DOI);
     void setTitulo(string titulo);
     void setFecha(DTFecha fecha);
-    void setAutores(vector<Investigador> autores);
+    void setAutores(set<Investigador*> autores);
 };
 
 #endif // PUBLICACION_H

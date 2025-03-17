@@ -7,17 +7,17 @@ class Libro : public Publicacion
 {
 private:
     string editorial;
-    vector<string> palabrasDestacadas;
+    set<string> palabrasDestacadas;
 public:
-    Libro(string DOI, string titulo, DTFecha fecha, string editorial, vector<string> palabrasDestacadas);
+    Libro(string DOI, string titulo, DTFecha fecha, string editorial, set<string> palabrasDestacadas);
     Libro();
     ~Libro();
 
     string getEditorial();
-    vector<string> getPalabrasDestacadas();
+    set<string> getPalabrasDestacadas();
 
     void setEditorial(string editorial);
-    void setPalabrasDestacadas(vector<string> palabrasDestacadas);
+    void setPalabrasDestacadas(set<string> palabrasDestacadas);
 };
 
 #endif // LIBRO_H

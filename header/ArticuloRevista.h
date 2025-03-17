@@ -3,10 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 #include "DTFecha.h"
-#include "DTRefer.h"
-#include "Investigador.h"
 #include "Publicacion.h"
 
 using namespace std;
