@@ -22,7 +22,7 @@ public:
     Publicacion();
     virtual ~Publicacion();
 
-    virtual DTRefer getDT() = 0;
+    DTRefer getDT();
     virtual bool contienePalabra(string palabra) = 0;
 
     //Getters
