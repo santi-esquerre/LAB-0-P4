@@ -20,6 +20,9 @@ public:
     DTRefer();
     ~DTRefer();
 
+    // Sobrecarga del operador de inserción de flujo
+    friend ostream& operator<<(ostream& os, const DTRefer& dtRefer);
+
     //Getters
     string getDOI();
     string getTitulo();
