@@ -21,7 +21,7 @@ protected:
 public:
     Publicacion(string DOI, string titulo, DTFecha fecha);
     Publicacion();
-    ~Publicacion();
+    virtual ~Publicacion();
 
     DTRefer getDT();
     virtual bool contienePalabra(string palabra) = 0;
