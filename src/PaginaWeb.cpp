@@ -2,7 +2,7 @@
 
 #pragma region CONSTRUCTORES
 
-PaginaWeb::PaginaWeb(string DOI, string titulo, DTFecha fecha, string URL, string contenidoExtraido) : Publicacion(DOI, titulo, fecha)
+PaginaWeb::PaginaWeb(const string &DOI, const string &titulo, DTFecha &fecha, const string &URL, const string &contenidoExtraido) : Publicacion(DOI, titulo, fecha)
 {
     this->URL = URL;
     this->contenidoExtraido = contenidoExtraido;
@@ -32,12 +32,12 @@ string PaginaWeb::getContenidoExtraido()
 
 #pragma region SETTERS
 
-void PaginaWeb::setURL(string URL)
+void PaginaWeb::setURL(const string &URL)
 {
     this->URL = URL;
 }
 
-void PaginaWeb::setContenidoExtraido(string contenidoExtraido)
+void PaginaWeb::setContenidoExtraido(const string &contenidoExtraido)
 {
     this->contenidoExtraido = contenidoExtraido;
 }
@@ -46,7 +46,7 @@ void PaginaWeb::setContenidoExtraido(string contenidoExtraido)
 
 #pragma region METODOS
 
-bool PaginaWeb::contienePalabra(string palabra)
+bool PaginaWeb::contienePalabra(const string &palabra)
 {
     return this->contenidoExtraido.find(palabra) != string::npos;
 }

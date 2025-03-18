@@ -17,12 +17,12 @@ private:
     set<Publicacion *> publicaciones;
 
 public:
-    Investigador(string ORCID, string nombre, string institucion);
+    Investigador(const string &ORCID, const string &nombre, const string &institucion);
     Investigador();
     ~Investigador();
 
     string toString();
-    set<string> listarPublicaciones(DTFecha desde, string palabra);
+    set<string> listarPublicaciones(DTFecha &desde, const string &palabra);
 
     // Getters
     string getORCID();
@@ -31,10 +31,10 @@ public:
     set<Publicacion *> getPublicaciones();
 
     // Setters
-    void setORCID(string ORCID);
-    void setNombre(string nombre);
-    void setInstitucion(string institucion);
-    void setPublicaciones(set<Publicacion *> publicaciones);
+    void setORCID(const string &ORCID);
+    void setNombre(const string &nombre);
+    void setInstitucion(const string &institucion);
+    void setPublicaciones(set<Publicacion *> &publicaciones);
 
     // Manejo de la lógica de la relación esAutor
     void agregarPublicacion(Publicacion *publicacion);

@@ -19,12 +19,14 @@ protected:
     set<Investigador *> autores;
 
 public:
-    Publicacion(string DOI, string titulo, DTFecha fecha);
+    Publicacion(const string &DOI, const string &titulo, DTFecha &fecha);
     Publicacion();
     virtual ~Publicacion();
 
     DTRefer getDT();
-    virtual bool contienePalabra(string palabra) = 0;
+
+    //! ES CASE SENSITIVE
+    virtual bool contienePalabra(const string &palabra) = 0;
 
     // Getters
     string getDOI();
@@ -33,10 +35,10 @@ public:
     set<Investigador *> getAutores();
 
     // Setters
-    void setDOI(string DOI);
-    void setTitulo(string titulo);
-    void setFecha(DTFecha fecha);
-    void setAutores(set<Investigador *> autores);
+    void setDOI(const string &DOI);
+    void setTitulo(const string &titulo);
+    void setFecha(DTFecha &fecha);
+    void setAutores(set<Investigador *> &autores);
 
     // Manejo de la lógica de la relación esAutor
     void agregarAutor(Investigador *autor);

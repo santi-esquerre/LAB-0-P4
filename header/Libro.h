@@ -10,17 +10,17 @@ private:
     set<string> palabrasDestacadas;
 
 public:
-    Libro(string DOI, string titulo, DTFecha fecha, string editorial, set<string> palabrasDestacadas);
+    Libro(const string &DOI, const string &titulo, DTFecha &fecha, const string &editorial, set<string> &palabrasDestacadas);
     Libro();
     ~Libro() override;
 
     string getEditorial();
     set<string> getPalabrasDestacadas();
 
-    void setEditorial(string editorial);
-    void setPalabrasDestacadas(set<string> palabrasDestacadas);
+    void setEditorial(const string &editorial);
+    void setPalabrasDestacadas(set<string> &palabrasDestacadas);
 
-    bool contienePalabra(string palabra) override;
+    bool contienePalabra(const string &palabra) override;
 };
 
 #endif // LIBRO_H

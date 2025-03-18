@@ -14,16 +14,17 @@ private:
     string revista, extracto;
 
 public:
-    ArticuloRevista(string DOI, string titulo, DTFecha fecha, string revista, string extracto);
+    ArticuloRevista(const string &DOI, const string &titulo, DTFecha &fecha, const string &revista, const string &extracto);
     ArticuloRevista();
+    ~ArticuloRevista() override = default;
 
     string getRevista();
     string getExtracto();
 
-    void setRevista(string revista);
-    void setExtracto(string extracto);
+    void setRevista(const string &revista);
+    void setExtracto(const string &extracto);
 
-    bool contienePalabra(string palabra) override;
+    bool contienePalabra(const string &palabra) override;
 };
 
 #endif // ARTICULOREVISTA_H

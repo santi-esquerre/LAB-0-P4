@@ -3,7 +3,7 @@
 
 #pragma region CONSTRUCTORES-DESTRUCTOR
 
-Publicacion::Publicacion(string DOI, string titulo, DTFecha fecha)
+Publicacion::Publicacion(const string &DOI, const string &titulo, DTFecha &fecha)
 {
     this->DOI = DOI;
     this->titulo = titulo;
@@ -54,22 +54,22 @@ set<Investigador *> Publicacion::getAutores()
 
 #pragma region SETTERS
 
-void Publicacion::setDOI(string DOI)
+void Publicacion::setDOI(const string &DOI)
 {
     this->DOI = DOI;
 }
 
-void Publicacion::setTitulo(string titulo)
+void Publicacion::setTitulo(const string &titulo)
 {
     this->titulo = titulo;
 }
 
-void Publicacion::setFecha(DTFecha fecha)
+void Publicacion::setFecha(DTFecha &fecha)
 {
     this->fecha = fecha;
 }
 
-void Publicacion::setAutores(set<Investigador *> autores)
+void Publicacion::setAutores(set<Investigador *> &autores)
 {
     this->autores = autores;
 }
@@ -99,7 +99,7 @@ DTRefer Publicacion::getDT()
     set<string> autores;
     for (auto autor : this->autores)
     {
-        autores.insert(autor->toString());
+        autores.insert(autor->getNombre());
     }
     return DTRefer(this->DOI, this->titulo, this->fecha, autores);
 }

@@ -8,7 +8,7 @@ Libro::Libro() : Publicacion()
     this->palabrasDestacadas = {};
 }
 
-Libro::Libro(string DOI, string titulo, DTFecha fecha, string editorial, set<string> palabrasDestacadas) : Publicacion(DOI, titulo, fecha)
+Libro::Libro(const string &DOI, const string &titulo, DTFecha &fecha, const string &editorial, set<string> &palabrasDestacadas) : Publicacion(DOI, titulo, fecha)
 {
     this->editorial = editorial;
     this->palabrasDestacadas = palabrasDestacadas;
@@ -37,12 +37,12 @@ set<string> Libro::getPalabrasDestacadas()
 
 #pragma region SETTERS
 
-void Libro::setEditorial(string editorial)
+void Libro::setEditorial(const string &editorial)
 {
     this->editorial = editorial;
 }
 
-void Libro::setPalabrasDestacadas(set<string> palabrasDestacadas)
+void Libro::setPalabrasDestacadas(set<string> &palabrasDestacadas)
 {
     this->palabrasDestacadas = palabrasDestacadas;
 }
@@ -51,7 +51,7 @@ void Libro::setPalabrasDestacadas(set<string> palabrasDestacadas)
 
 #pragma region MÉTODOS
 
-bool Libro::contienePalabra(string palabra)
+bool Libro::contienePalabra(const string &palabra)
 {
     return this->palabrasDestacadas.find(palabra) != this->palabrasDestacadas.end();
 }

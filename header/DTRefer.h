@@ -14,16 +14,17 @@ private:
     string DOI, titulo;
     DTFecha fecha;
     set<string> autores;
+
 public:
-    //Constructores y destructor
-    DTRefer(string DOI, string titulo, DTFecha fecha, set<string> autores);
+    // Constructores y destructor
+    DTRefer(const string &DOI, const string &titulo, DTFecha &fecha, set<string> &autores);
     DTRefer();
     ~DTRefer();
 
     // Sobrecarga del operador de inserción de flujo
-    friend ostream& operator<<(ostream& os, const DTRefer& dtRefer);
+    friend ostream &operator<<(ostream &os, const DTRefer &dtRefer);
 
-    //Getters
+    // Getters
     string getDOI();
     string getTitulo();
     DTFecha getFecha();

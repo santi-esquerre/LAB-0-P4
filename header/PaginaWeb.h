@@ -9,16 +9,17 @@ private:
     string URL, contenidoExtraido;
 
 public:
-    PaginaWeb(string DOI, string titulo, DTFecha fecha, string URL, string contenidoExtraido);
+    PaginaWeb(const string &DOI, const string &titulo, DTFecha &fecha, const string &URL, const string &contenidoExtraido);
     PaginaWeb();
+    ~PaginaWeb() override = default;
 
     string getURL();
     string getContenidoExtraido();
 
-    void setURL(string URL);
-    void setContenidoExtraido(string contenidoExtraido);
+    void setURL(const string &URL);
+    void setContenidoExtraido(const string &contenidoExtraido);
 
-    bool contienePalabra(string palabra) override;
+    bool contienePalabra(const string &palabra) override;
 };
 
 #endif // PAGINAWEB_H

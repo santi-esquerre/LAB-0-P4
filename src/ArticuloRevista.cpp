@@ -8,7 +8,7 @@ ArticuloRevista::ArticuloRevista() : Publicacion()
     this->extracto = "";
 }
 
-ArticuloRevista::ArticuloRevista(string DOI, string titulo, DTFecha fecha, string revista, string extracto) : Publicacion(DOI, titulo, fecha)
+ArticuloRevista::ArticuloRevista(const string &DOI, const string &titulo, DTFecha &fecha, const string &revista, const string &extracto) : Publicacion(DOI, titulo, fecha)
 {
     this->revista = revista;
     this->extracto = extracto;
@@ -32,12 +32,12 @@ string ArticuloRevista::getExtracto()
 
 #pragma region SETTERS
 
-void ArticuloRevista::setRevista(string revista)
+void ArticuloRevista::setRevista(const string &revista)
 {
     this->revista = revista;
 }
 
-void ArticuloRevista::setExtracto(string extracto)
+void ArticuloRevista::setExtracto(const string &extracto)
 {
     this->extracto = extracto;
 }
@@ -46,7 +46,7 @@ void ArticuloRevista::setExtracto(string extracto)
 
 #pragma region MÉTODOS
 
-bool ArticuloRevista::contienePalabra(string palabra)
+bool ArticuloRevista::contienePalabra(const string &palabra)
 {
     return this->extracto.find(palabra) != string::npos;
 }
