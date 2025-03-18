@@ -12,16 +12,18 @@ class ArticuloRevista : public Publicacion
 {
 private:
     string revista, extracto;
+
 public:
     ArticuloRevista(string DOI, string titulo, DTFecha fecha, string revista, string extracto);
     ArticuloRevista();
-    ~ArticuloRevista();
 
     string getRevista();
     string getExtracto();
 
     void setRevista(string revista);
     void setExtracto(string extracto);
+
+    bool contienePalabra(string palabra) override;
 };
 
 #endif // ARTICULOREVISTA_H
