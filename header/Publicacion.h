@@ -37,6 +37,10 @@ public:
     void setTitulo(string titulo);
     void setFecha(DTFecha fecha);
     void setAutores(set<Investigador *> autores);
+
+    // Manejo de la lógica de la relación esAutor
+    void agregarAutor(Investigador *autor);
+    void quitarAutor(Investigador *autor);
 };
 
 #endif // PUBLICACION_H

@@ -14,7 +14,8 @@ class Investigador
 {
 private:
     string ORCID, nombre, institucion;
-    set<Publicacion*> publicaciones;
+    set<Publicacion *> publicaciones;
+
 public:
     Investigador(string ORCID, string nombre, string institucion);
     Investigador();
@@ -23,17 +24,21 @@ public:
     string toString();
     set<string> listarPublicaciones(DTFecha desde, string palabra);
 
-    //Getters
+    // Getters
     string getORCID();
     string getNombre();
     string getInstitucion();
-    set<Publicacion*> getPublicaciones();
+    set<Publicacion *> getPublicaciones();
 
-    //Setters
+    // Setters
     void setORCID(string ORCID);
     void setNombre(string nombre);
     void setInstitucion(string institucion);
-    void setPublicaciones(set<Publicacion*> publicaciones);
+    void setPublicaciones(set<Publicacion *> publicaciones);
+
+    // Manejo de la lógica de la relación esAutor
+    void agregarPublicacion(Publicacion *publicacion);
+    void quitarPublicacion(Publicacion *publicacion);
 };
 
 #endif // INVESTIGADOR_H
