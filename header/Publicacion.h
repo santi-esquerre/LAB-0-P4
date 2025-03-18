@@ -16,26 +16,27 @@ class Publicacion
 protected:
     string DOI, titulo;
     DTFecha fecha;
-    set<Investigador*> autores;
+    set<Investigador *> autores;
+
 public:
     Publicacion(string DOI, string titulo, DTFecha fecha);
     Publicacion();
-    virtual ~Publicacion();
+    ~Publicacion();
 
     DTRefer getDT();
     virtual bool contienePalabra(string palabra) = 0;
 
-    //Getters
+    // Getters
     string getDOI();
     string getTitulo();
     DTFecha getFecha();
-    set<Investigador*> getAutores();
+    set<Investigador *> getAutores();
 
-    //Setters
+    // Setters
     void setDOI(string DOI);
     void setTitulo(string titulo);
     void setFecha(DTFecha fecha);
-    void setAutores(set<Investigador*> autores);
+    void setAutores(set<Investigador *> autores);
 };
 
 #endif // PUBLICACION_H
