@@ -9,6 +9,7 @@ public:
     DTFecha(int dia, int mes, int anio);
     DTFecha();
     ~DTFecha();
+    bool operator>=(DTFecha);
 
     //Getters
     int getDia();
