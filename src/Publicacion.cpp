@@ -81,13 +81,22 @@ void Publicacion::setAutores(set<Investigador *> &autores)
 void Publicacion::agregarAutor(Investigador *autor)
 {
     this->autores.insert(autor);
-    autor->agregarPublicacion(this);
+    if(!autor->pertenecePublicacion(this)) autor->agregarPublicacion(this);
 }
 
 void Publicacion::quitarAutor(Investigador *autor)
 {
-    this->autores.erase(autor);
-    autor->quitarPublicacion(this);
+    if (autor != nullptr)
+    {
+        this->autores.erase(autor);
+        if(autor->pertenecePublicacion(this)) autor->quitarPublicacion(this);       
+    }
+}
+
+bool Publicacion::perteneceAutor(Investigador *autor)
+{
+    auto esAutor = this->autores.find(autor);
+    return esAutor != this->autores.end();
 }
 
 #pragma endregion
