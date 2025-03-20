@@ -6,21 +6,21 @@
 class Libro : public Publicacion
 {
 private:
-    string editorial;
-    set<string> palabrasDestacadas;
+    std::string editorial;
+    std::set<std::string> palabrasDestacadas;
 
 public:
-    Libro(const string &DOI, const string &titulo, DTFecha &fecha, const string &editorial, set<string> &palabrasDestacadas);
+    Libro(const std::string &DOI, const std::string &titulo, DTFecha &fecha, const std::string &editorial, std::set<std::string> &palabrasDestacadas);
     Libro();
     ~Libro() override;
 
-    string getEditorial();
-    set<string> getPalabrasDestacadas();
+    std::string getEditorial();
+    std::set<std::string> getPalabrasDestacadas();
 
-    void setEditorial(const string &editorial);
-    void setPalabrasDestacadas(set<string> &palabrasDestacadas);
+    void setEditorial(const std::string &editorial);
+    void setPalabrasDestacadas(std::set<std::string> &palabrasDestacadas);
 
-    bool contienePalabra(const string &palabra) override;
+    bool contienePalabra(const std::string &palabra) override;
 };
 
 #endif // LIBRO_H

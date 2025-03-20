@@ -6,20 +6,20 @@
 class PaginaWeb : public Publicacion
 {
 private:
-    string URL, contenidoExtraido;
+    std::string URL, contenidoExtraido;
 
 public:
-    PaginaWeb(const string &DOI, const string &titulo, DTFecha &fecha, const string &URL, const string &contenidoExtraido);
+    PaginaWeb(const std::string &DOI, const std::string &titulo, DTFecha &fecha, const std::string &URL, const std::string &contenidoExtraido);
     PaginaWeb();
     ~PaginaWeb() override = default;
 
-    string getURL();
-    string getContenidoExtraido();
+    std::string getURL();
+    std::string getContenidoExtraido();
 
-    void setURL(const string &URL);
-    void setContenidoExtraido(const string &contenidoExtraido);
+    void setURL(const std::string &URL);
+    void setContenidoExtraido(const std::string &contenidoExtraido);
 
-    bool contienePalabra(const string &palabra) override;
+    bool contienePalabra(const std::string &palabra) override;
 };
 
 #endif // PAGINAWEB_H
