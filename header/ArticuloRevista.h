@@ -6,25 +6,23 @@
 #include "DTFecha.h"
 #include "Publicacion.h"
 
-using namespace std;
-
 class ArticuloRevista : public Publicacion
 {
 private:
-    string revista, extracto;
+    std::string revista, extracto;
 
 public:
-    ArticuloRevista(const string &DOI, const string &titulo, DTFecha &fecha, const string &revista, const string &extracto);
+    ArticuloRevista(const std::string &DOI, const std::string &titulo, DTFecha &fecha, const std::string &revista, const std::string &extracto);
     ArticuloRevista();
     ~ArticuloRevista() override = default;
 
-    string getRevista();
-    string getExtracto();
+    std::string getRevista();
+    std::string getExtracto();
 
-    void setRevista(const string &revista);
-    void setExtracto(const string &extracto);
+    void setRevista(const std::string &revista);
+    void setExtracto(const std::string &extracto);
 
-    bool contienePalabra(const string &palabra) override;
+    bool contienePalabra(const std::string &palabra) override;
 };
 
 #endif // ARTICULOREVISTA_H

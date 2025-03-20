@@ -1,6 +1,7 @@
-#include DTFecha.h 
+#include "../header/DTFecha.h"
 
-bool DTFecha::operator>=(DTFecha fecha) {
+bool DTFecha::operator>=(DTFecha fecha)
+{
     int anio = fecha.getAnio();
     int mes = fecha.getMes();
     int dia = fecha.getDia();

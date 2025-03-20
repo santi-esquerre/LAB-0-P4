@@ -1,34 +1,32 @@
 #ifndef DTREFER_H
 #define DTREFER_H
 
-#include <iostream>
 #include <string>
 #include <set>
 #include "DTFecha.h"
-
-using namespace std;
+#include <ostream>
 
 class DTRefer
 {
 private:
-    string DOI, titulo;
+    std::string DOI, titulo;
     DTFecha fecha;
-    set<string> autores;
+    std::set<std::string> autores;
 
 public:
     // Constructores y destructor
-    DTRefer(const string &DOI, const string &titulo, DTFecha &fecha, set<string> &autores);
+    DTRefer(const std::string &DOI, const std::string &titulo, DTFecha &fecha, std::set<std::string> &autores);
     DTRefer();
     ~DTRefer();
 
     // Sobrecarga del operador de inserción de flujo
-    friend ostream &operator<<(ostream &os, const DTRefer &dtRefer);
+    friend std::ostream &operator<<(std::ostream &os, const DTRefer &dtRefer);
 
     // Getters
-    string getDOI();
-    string getTitulo();
+    std::string getDOI();
+    std::string getTitulo();
     DTFecha getFecha();
-    set<string> getAutores();
+    std::set<std::string> getAutores();
 };
 
 #endif // DTREFER_H

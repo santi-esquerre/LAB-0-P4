@@ -1,7 +1,6 @@
 #ifndef PUBLICACION_H
 #define PUBLICACION_H
 
-#include <iostream>
 #include <string>
 #include <set>
 #include "DTFecha.h"
@@ -9,36 +8,34 @@
 
 class Investigador;
 
-using namespace std;
-
 class Publicacion
 {
 protected:
-    string DOI, titulo;
+    std::string DOI, titulo;
     DTFecha fecha;
-    set<Investigador *> autores;
+    std::set<Investigador *> autores;
 
 public:
-    Publicacion(const string &DOI, const string &titulo, DTFecha &fecha);
+    Publicacion(const std::string &DOI, const std::string &titulo, DTFecha &fecha);
     Publicacion();
     virtual ~Publicacion();
 
     DTRefer getDT();
 
     //! ES CASE SENSITIVE
-    virtual bool contienePalabra(const string &palabra) = 0;
+    virtual bool contienePalabra(const std::string &palabra) = 0;
 
     // Getters
-    string getDOI();
-    string getTitulo();
+    std::string getDOI();
+    std::string getTitulo();
     DTFecha getFecha();
-    set<Investigador *> getAutores();
+    std::set<Investigador *> getAutores();
 
     // Setters
-    void setDOI(const string &DOI);
-    void setTitulo(const string &titulo);
+    void setDOI(const std::string &DOI);
+    void setTitulo(const std::string &titulo);
     void setFecha(DTFecha &fecha);
-    void setAutores(set<Investigador *> &autores);
+    void setAutores(std::set<Investigador *> &autores);
 
     // Manejo de la lógica de la relación esAutor
     void agregarAutor(Investigador *autor);

@@ -8,7 +8,7 @@ ArticuloRevista::ArticuloRevista() : Publicacion()
     this->extracto = "";
 }
 
-ArticuloRevista::ArticuloRevista(const string &DOI, const string &titulo, DTFecha &fecha, const string &revista, const string &extracto) : Publicacion(DOI, titulo, fecha)
+ArticuloRevista::ArticuloRevista(const std::string &DOI, const std::string &titulo, DTFecha &fecha, const std::string &revista, const std::string &extracto) : Publicacion(DOI, titulo, fecha)
 {
     this->revista = revista;
     this->extracto = extracto;
@@ -18,12 +18,12 @@ ArticuloRevista::ArticuloRevista(const string &DOI, const string &titulo, DTFech
 
 #pragma region GETTERS
 
-string ArticuloRevista::getRevista()
+std::string ArticuloRevista::getRevista()
 {
     return this->revista;
 }
 
-string ArticuloRevista::getExtracto()
+std::string ArticuloRevista::getExtracto()
 {
     return this->extracto;
 }
@@ -32,12 +32,12 @@ string ArticuloRevista::getExtracto()
 
 #pragma region SETTERS
 
-void ArticuloRevista::setRevista(const string &revista)
+void ArticuloRevista::setRevista(const std::string &revista)
 {
     this->revista = revista;
 }
 
-void ArticuloRevista::setExtracto(const string &extracto)
+void ArticuloRevista::setExtracto(const std::string &extracto)
 {
     this->extracto = extracto;
 }
@@ -46,9 +46,9 @@ void ArticuloRevista::setExtracto(const string &extracto)
 
 #pragma region MÉTODOS
 
-bool ArticuloRevista::contienePalabra(const string &palabra)
+bool ArticuloRevista::contienePalabra(const std::string &palabra)
 {
-    return this->extracto.find(palabra) != string::npos;
+    return this->extracto.find(palabra) != std::string::npos;
 }
 
 #pragma endregion
