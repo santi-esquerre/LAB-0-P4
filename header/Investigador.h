@@ -5,6 +5,7 @@
 #include <string>
 #include <set>
 #include "DTFecha.h"
+#include "Publicacion.h"
 
 class Publicacion;
 
@@ -39,6 +40,7 @@ public:
     // Manejo de la lógica de la relación esAutor
     void agregarPublicacion(Publicacion *publicacion);
     void quitarPublicacion(Publicacion *publicacion);
+    bool pertenecePublicacion(Publicacion *publicacion);
 };
 
 #endif // INVESTIGADOR_H

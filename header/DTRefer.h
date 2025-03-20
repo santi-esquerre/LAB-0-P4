@@ -22,7 +22,7 @@ public:
     ~DTRefer();
 
     // Sobrecarga del operador de inserción de flujo
-    friend ostream &operator<<(ostream &os, const DTRefer &dtRefer);
+    friend ostream &operator<<(ostream &os, DTRefer &dtRefer);
 
     // Getters
     string getDOI();
