@@ -97,8 +97,7 @@ void Publicacion::quitarAutor(Investigador *autor)
 
 bool Publicacion::perteneceAutor(Investigador *autor)
 {
-    auto esAutor = this->autores.find(autor);
-    return esAutor != this->autores.end();
+    return this->autores.find(autor) != this->autores.end();
 }
 
 #pragma endregion

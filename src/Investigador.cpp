@@ -16,8 +16,10 @@ Investigador::Investigador()
 
 Investigador::~Investigador()
 {
-    for (auto publicacion : this->publicaciones)
-        publicacion->quitarAutor(this);
+    for (std::set<Publicacion *>::iterator it = this->publicaciones.begin(); it != this->publicaciones.end(); ++it)
+    {
+        (*it)->quitarAutor(this);
+    }
     this->publicaciones.clear();
 }
 
@@ -31,11 +33,14 @@ std::set<std::string> Investigador::listarPublicaciones(DTFecha &desde, const st
 {
     std::set<std::string> listaDesde;
     std::set<Publicacion *> listaPublicaciones = this->getPublicaciones();
-    for (auto publicacion : listaPublicaciones)
+
+    for (std::set<Publicacion *>::iterator it = listaPublicaciones.begin(); it != listaPublicaciones.end(); ++it)
     {
+        Publicacion *publicacion = *it;
         if (publicacion->getFecha() >= desde && publicacion->contienePalabra(palabra))
             listaDesde.insert(publicacion->getDOI());
     }
+
     return listaDesde;
 }
 
@@ -98,6 +103,5 @@ void Investigador::quitarPublicacion(Publicacion *publicacion)
 
 bool Investigador::pertenecePublicacion(Publicacion *publicacion)
 {
-    auto tienePublicacion = this->publicaciones.find(publicacion);
-    return tienePublicacion != this->publicaciones.end();
+    return this->publicaciones.find(publicacion) != this->publicaciones.end();
 }
