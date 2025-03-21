@@ -87,7 +87,7 @@ void Publicacion::agregarAutor(Investigador *autor)
 
 void Publicacion::quitarAutor(Investigador *autor)
 {
-    if (autor != nullptr)
+    if (autor != NULL)
     {
         this->autores.erase(autor);
         if (autor->pertenecePublicacion(this))
