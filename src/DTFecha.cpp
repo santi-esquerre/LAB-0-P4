@@ -1,10 +1,41 @@
-#include "../header/DTFecha.h"
+#include "../header/DTFecha.h" 
 
-bool DTFecha::operator>=(DTFecha fecha)
-{
+DTFecha::DTFecha(int dia, int mes, int anio){
+    this->dia = dia;
+    this->mes = mes;
+    this->anio = anio;
+}
+
+DTFecha::DTFecha(){
+    this->dia = 0;
+    this->mes = 0;
+    this->anio = 0;
+}
+
+DTFecha::~DTFecha(){};
+
+int DTFecha::getDia(){
+    return this->dia;
+}
+
+int DTFecha::getMes(){
+    return this->mes;
+}
+
+int DTFecha::getAnio(){
+    return this->anio;
+}
+
+bool DTFecha::operator>=(DTFecha fecha) {
+
     int anio = fecha.getAnio();
     int mes = fecha.getMes();
     int dia = fecha.getDia();
 
     return (this->anio > anio) || (this->anio == anio && this->mes > mes) || (this->anio == anio && this->mes == mes && this->dia >= dia);
+}
+
+std::ostream &operator<<(std::ostream &os, const DTFecha &dtFecha) {
+    os << dtFecha.dia << "/" << dtFecha.mes << "/" << dtFecha.anio;
+    return os;
 }

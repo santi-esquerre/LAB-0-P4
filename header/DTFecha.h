@@ -1,5 +1,6 @@
 #ifndef DTFECHA_H
 #define DTFECHA_H
+#include <ostream>
 class DTFecha
 {
 private:
@@ -9,7 +10,11 @@ public:
     DTFecha(int dia, int mes, int anio);
     DTFecha();
     ~DTFecha();
+  
+    //Operadores
     bool operator>=(DTFecha);
+    friend std::ostream &operator<<(std::ostream &os, const DTFecha &dtFecha);
+
 
     //Getters
     int getDia();
