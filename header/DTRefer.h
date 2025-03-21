@@ -17,7 +17,7 @@ public:
     // Constructores y destructor
     DTRefer(const std::string &DOI, const std::string &titulo, DTFecha &fecha, std::set<std::string> &autores);
     DTRefer();
-    ~DTRefer();
+    //~DTRefer();
 
     // Sobrecarga del operador de inserción de flujo
     friend std::ostream &operator<<(std::ostream &os, const DTRefer &dtRefer);
