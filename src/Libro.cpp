@@ -8,7 +8,7 @@ Libro::Libro() : Publicacion()
     this->palabrasDestacadas = {};
 }
 
-Libro::Libro(const string &DOI, const string &titulo, DTFecha &fecha, const string &editorial, set<string> &palabrasDestacadas) : Publicacion(DOI, titulo, fecha)
+Libro::Libro(const std::string &DOI, const std::string &titulo, DTFecha &fecha, const std::string &editorial, std::set<std::string> &palabrasDestacadas) : Publicacion(DOI, titulo, fecha)
 {
     this->editorial = editorial;
     this->palabrasDestacadas = palabrasDestacadas;
@@ -23,12 +23,12 @@ Libro::~Libro()
 
 #pragma region GETTERS
 
-string Libro::getEditorial()
+std::string Libro::getEditorial()
 {
     return this->editorial;
 }
 
-set<string> Libro::getPalabrasDestacadas()
+std::set<std::string> Libro::getPalabrasDestacadas()
 {
     return this->palabrasDestacadas;
 }
@@ -37,12 +37,12 @@ set<string> Libro::getPalabrasDestacadas()
 
 #pragma region SETTERS
 
-void Libro::setEditorial(const string &editorial)
+void Libro::setEditorial(const std::string &editorial)
 {
     this->editorial = editorial;
 }
 
-void Libro::setPalabrasDestacadas(set<string> &palabrasDestacadas)
+void Libro::setPalabrasDestacadas(std::set<std::string> &palabrasDestacadas)
 {
     this->palabrasDestacadas = palabrasDestacadas;
 }
@@ -51,7 +51,7 @@ void Libro::setPalabrasDestacadas(set<string> &palabrasDestacadas)
 
 #pragma region MÉTODOS
 
-bool Libro::contienePalabra(const string &palabra)
+bool Libro::contienePalabra(const std::string &palabra)
 {
     return this->palabrasDestacadas.find(palabra) != this->palabrasDestacadas.end();
 }

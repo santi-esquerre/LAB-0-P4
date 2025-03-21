@@ -3,7 +3,7 @@
 
 #pragma region CONSTRUCTORES-DESTRUCTOR
 
-Publicacion::Publicacion(const string &DOI, const string &titulo, DTFecha &fecha)
+Publicacion::Publicacion(const std::string &DOI, const std::string &titulo, DTFecha &fecha)
 {
     this->DOI = DOI;
     this->titulo = titulo;
@@ -19,9 +19,9 @@ Publicacion::Publicacion()
 
 Publicacion::~Publicacion()
 {
-    for (auto autor : this->autores)
+    for (std::set<Investigador *>::iterator it = this->autores.begin(); it != this->autores.end(); ++it)
     {
-        autor->quitarPublicacion(this);
+        (*it)->quitarPublicacion(this);
     }
     this->autores.clear();
 }
@@ -30,12 +30,12 @@ Publicacion::~Publicacion()
 
 #pragma region GETTERS
 
-string Publicacion::getDOI()
+std::string Publicacion::getDOI()
 {
     return this->DOI;
 }
 
-string Publicacion::getTitulo()
+std::string Publicacion::getTitulo()
 {
     return this->titulo;
 }
@@ -45,21 +45,21 @@ DTFecha Publicacion::getFecha()
     return this->fecha;
 }
 
-set<Investigador *> Publicacion::getAutores()
+std::set<Investigador *> Publicacion::getAutores()
 {
     return this->autores;
 }
 
 #pragma endregion
 
-#pragma region SETTERS
+#pragma region std::setTERS
 
-void Publicacion::setDOI(const string &DOI)
+void Publicacion::setDOI(const std::string &DOI)
 {
     this->DOI = DOI;
 }
 
-void Publicacion::setTitulo(const string &titulo)
+void Publicacion::setTitulo(const std::string &titulo)
 {
     this->titulo = titulo;
 }
@@ -69,7 +69,7 @@ void Publicacion::setFecha(DTFecha &fecha)
     this->fecha = fecha;
 }
 
-void Publicacion::setAutores(set<Investigador *> &autores)
+void Publicacion::setAutores(std::set<Investigador *> &autores)
 {
     this->autores = autores;
 }
@@ -81,13 +81,24 @@ void Publicacion::setAutores(set<Investigador *> &autores)
 void Publicacion::agregarAutor(Investigador *autor)
 {
     this->autores.insert(autor);
-    autor->agregarPublicacion(this);
+    if (!autor->pertenecePublicacion(this))
+        autor->agregarPublicacion(this);
 }
 
 void Publicacion::quitarAutor(Investigador *autor)
 {
-    this->autores.erase(autor);
-    autor->quitarPublicacion(this);
+    if (autor != nullptr)
+    {
+        this->autores.erase(autor);
+        if (autor->pertenecePublicacion(this))
+            autor->quitarPublicacion(this);
+    }
+}
+
+bool Publicacion::perteneceAutor(Investigador *autor)
+{
+    auto esAutor = this->autores.find(autor);
+    return esAutor != this->autores.end();
 }
 
 #pragma endregion
@@ -96,10 +107,10 @@ void Publicacion::quitarAutor(Investigador *autor)
 
 DTRefer Publicacion::getDT()
 {
-    set<string> autores;
-    for (auto autor : this->autores)
+    std::set<std::string> autores;
+    for (std::set<Investigador *>::iterator it = this->autores.begin(); it != this->autores.end(); ++it)
     {
-        autores.insert(autor->getNombre());
+        autores.insert((*it)->getNombre());
     }
     return DTRefer(this->DOI, this->titulo, this->fecha, autores);
 }
