@@ -31,3 +31,8 @@ bool DTFecha::operator>=(DTFecha fecha) {
 
     return (this->anio > anio) || (this->anio == anio && this->mes > mes) || (this->anio == anio && this->mes == mes && this->dia >= dia);
 }
+
+std::ostream &operator<<(std::ostream &os, const DTFecha &dtFecha) {
+    os << dtFecha.dia << "/" << dtFecha.mes << "/" << dtFecha.anio;
+    return os;
+}

@@ -1,4 +1,5 @@
 #include "../header/DTRefer.h"
+//#include "../header/DTFecha.h"
 
 
 DTRefer::DTRefer(const std::string &DOI, const std::string &titulo, DTFecha &fecha, std::set<std::string> &autores){
@@ -30,10 +31,14 @@ std::set<std::string> DTRefer::getAutores(){
     return this->autores;
 }
 
-std::ostream &operator<<(std::ostream &os, DTRefer &dtRefer){
-    os << dtRefer.getDOI() << "->" << dtRefer.getTitulo() << "(" << dtRefer.getFecha().getDia() << "/" << dtRefer.getFecha().getMes() << dtRefer.getFecha().getAnio() << ")/";
-    for (std::string autor : dtRefer.getAutores()){
-        os << autor << ",";
+std::ostream &operator<<(std::ostream &os, const DTRefer &dtRefer){
+    os << dtRefer.DOI << "->" << dtRefer.titulo << "(" << dtRefer.fecha << ")/";
+    for (std::set<std::string>::iterator it = dtRefer.autores.begin() ; it != dtRefer.autores.end(); it++){
+        if(std::distance (it, dtRefer.autores.end()) > 1 ){
+            os << *it << ",";
+        } else {
+            os << *it;
+        }
     }
     return os;
 }
