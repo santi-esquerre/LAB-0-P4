@@ -16,6 +16,8 @@ DTRefer::DTRefer(){
     this->autores = std::set<std::string> {""};
 }
 
+DTRefer::~DTRefer(){};
+
 //Getters
 
 std::string DTRefer::getDOI(){
@@ -30,6 +32,8 @@ DTFecha DTRefer::getFecha(){
 std::set<std::string> DTRefer::getAutores(){
     return this->autores;
 }
+
+//Sobrecarga
 
 std::ostream &operator<<(std::ostream &os, const DTRefer &dtRefer){
     os << dtRefer.DOI << "->" << dtRefer.titulo << "(" << dtRefer.fecha << ")/";

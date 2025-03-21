@@ -12,6 +12,8 @@ DTFecha::DTFecha(){
     this->anio = 0;
 }
 
+DTFecha::~DTFecha(){};
+
 int DTFecha::getDia(){
     return this->dia;
 }
