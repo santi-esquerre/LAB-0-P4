@@ -9,7 +9,7 @@ public:
     //Constructor y destructor
     DTFecha(int dia, int mes, int anio);
     DTFecha();
-   // ~DTFecha();
+    ~DTFecha();
     bool operator>=(DTFecha);
     friend std::ostream &operator<<(std::ostream &os, const DTFecha &dtFecha);
 
