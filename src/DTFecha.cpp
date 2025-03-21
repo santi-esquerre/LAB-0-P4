@@ -14,19 +14,19 @@ DTFecha::DTFecha(){
 
 DTFecha::~DTFecha(){};
 
-int DTFecha::getDia(){
+int DTFecha::getDia() const{
     return this->dia;
 }
 
-int DTFecha::getMes(){
+int DTFecha::getMes() const{
     return this->mes;
 }
 
-int DTFecha::getAnio(){
+int DTFecha::getAnio() const{
     return this->anio;
 }
 
-bool DTFecha::operator>=(DTFecha fecha) {
+bool DTFecha::operator>=(const DTFecha &fecha) const {
 
     int anio = fecha.getAnio();
     int mes = fecha.getMes();

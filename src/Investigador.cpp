@@ -1,6 +1,8 @@
 #include "../header/Investigador.h"
+using std::set;
+using std::string;
 
-Investigador::Investigador(const std::string &ORCID, const std::string &nombre, const std::string &institucion)
+Investigador::Investigador(const string &ORCID, const string &nombre, const string &institucion)
 {
     this->ORCID = ORCID;
     this->nombre = nombre;
@@ -16,25 +18,26 @@ Investigador::Investigador()
 
 Investigador::~Investigador()
 {
-    for (std::set<Publicacion *>::iterator it = this->publicaciones.begin(); it != this->publicaciones.end(); ++it)
-    {
-        (*it)->quitarAutor(this);
-    }
+   set<Publicacion*> copiaPublicaciones = this->publicaciones;
+   for (set<Publicacion *>::iterator it = copiaPublicaciones.begin(); it != copiaPublicaciones.end(); ++it)
+   {
+       (*it)->quitarAutor(this);
+   } 
     this->publicaciones.clear();
 }
 
-std::string Investigador::toString()
+string Investigador::toString()
 {
-    std::string informacion = this->ORCID + "->" + this->nombre + "/" + this->institucion;
+    string informacion = this->ORCID + "->" + this->nombre + "/" + this->institucion;
     return informacion;
 }
 
-std::set<std::string> Investigador::listarPublicaciones(DTFecha &desde, const std::string &palabra)
+set<string> Investigador::listarPublicaciones(const DTFecha &desde, const string &palabra) const
 {
-    std::set<std::string> listaDesde;
-    std::set<Publicacion *> listaPublicaciones = this->getPublicaciones();
+    set<string> listaDesde;
+    set<Publicacion *> listaPublicaciones = this->publicaciones;
 
-    for (std::set<Publicacion *>::iterator it = listaPublicaciones.begin(); it != listaPublicaciones.end(); ++it)
+    for (set<Publicacion *>::iterator it = listaPublicaciones.begin(); it != listaPublicaciones.end(); ++it)
     {
         Publicacion *publicacion = *it;
         if (publicacion->getFecha() >= desde && publicacion->contienePalabra(palabra))
@@ -44,42 +47,42 @@ std::set<std::string> Investigador::listarPublicaciones(DTFecha &desde, const st
     return listaDesde;
 }
 
-std::string Investigador::getORCID()
+string Investigador::getORCID() const
 {
     return this->ORCID;
 }
 
-std::string Investigador::getNombre()
+string Investigador::getNombre() const
 {
     return this->nombre;
 }
 
-std::string Investigador::getInstitucion()
+string Investigador::getInstitucion() const
 {
     return this->institucion;
 }
 
-std::set<Publicacion *> Investigador::getPublicaciones()
+set<Publicacion *> Investigador::getPublicaciones() const
 {
     return this->publicaciones;
 }
 
-void Investigador::setORCID(const std::string &ORCID)
+void Investigador::setORCID(const string &ORCID)
 {
     this->ORCID = ORCID;
 }
 
-void Investigador::setNombre(const std::string &nombre)
+void Investigador::setNombre(const string &nombre)
 {
     this->nombre = nombre;
 }
 
-void Investigador::setInstitucion(const std::string &institucion)
+void Investigador::setInstitucion(const string &institucion)
 {
     this->institucion = institucion;
 }
 
-void Investigador::setPublicaciones(std::set<Publicacion *> &publicaciones)
+void Investigador::setPublicaciones(set<Publicacion *> &publicaciones)
 {
     this->publicaciones = publicaciones;
 }
@@ -93,7 +96,7 @@ void Investigador::agregarPublicacion(Publicacion *publicacion)
 
 void Investigador::quitarPublicacion(Publicacion *publicacion)
 {
-    if (publicacion != nullptr)
+    if (publicacion != NULL)
     {
         this->publicaciones.erase(publicacion);
         if (publicacion->perteneceAutor(this))
