@@ -2,7 +2,7 @@
 
 #pragma region CONSTRUCTORES
 
-PaginaWeb::PaginaWeb(const string &DOI, const string &titulo, DTFecha &fecha, const string &URL, const string &contenidoExtraido) : Publicacion(DOI, titulo, fecha)
+PaginaWeb::PaginaWeb(const std::string &DOI, const std::string &titulo, DTFecha &fecha, const std::string &URL, const std::string &contenidoExtraido) : Publicacion(DOI, titulo, fecha)
 {
     this->URL = URL;
     this->contenidoExtraido = contenidoExtraido;
@@ -18,12 +18,12 @@ PaginaWeb::PaginaWeb() : Publicacion()
 
 #pragma region GETTERS
 
-string PaginaWeb::getURL()
+std::string PaginaWeb::getURL()
 {
     return this->URL;
 }
 
-string PaginaWeb::getContenidoExtraido()
+std::string PaginaWeb::getContenidoExtraido()
 {
     return this->contenidoExtraido;
 }
@@ -32,12 +32,12 @@ string PaginaWeb::getContenidoExtraido()
 
 #pragma region SETTERS
 
-void PaginaWeb::setURL(const string &URL)
+void PaginaWeb::setURL(const std::string &URL)
 {
     this->URL = URL;
 }
 
-void PaginaWeb::setContenidoExtraido(const string &contenidoExtraido)
+void PaginaWeb::setContenidoExtraido(const std::string &contenidoExtraido)
 {
     this->contenidoExtraido = contenidoExtraido;
 }
@@ -46,9 +46,9 @@ void PaginaWeb::setContenidoExtraido(const string &contenidoExtraido)
 
 #pragma region METODOS
 
-bool PaginaWeb::contienePalabra(const string &palabra)
+bool PaginaWeb::contienePalabra(const std::string &palabra)
 {
-    return this->contenidoExtraido.find(palabra) != string::npos;
+    return this->contenidoExtraido.find(palabra) != std::string::npos;
 }
 
 #pragma endregion

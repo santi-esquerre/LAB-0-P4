@@ -27,6 +27,7 @@ int DTFecha::getAnio(){
 }
 
 bool DTFecha::operator>=(DTFecha fecha) {
+
     int anio = fecha.getAnio();
     int mes = fecha.getMes();
     int dia = fecha.getDia();
