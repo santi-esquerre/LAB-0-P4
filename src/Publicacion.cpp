@@ -19,7 +19,8 @@ Publicacion::Publicacion()
 
 Publicacion::~Publicacion()
 {
-    for (std::set<Investigador *>::iterator it = this->autores.begin(); it != this->autores.end(); ++it)
+    std::set<Investigador*> copiaInvestigadores = this->autores;
+    for (std::set<Investigador *>::iterator it = copiaInvestigadores.begin(); it != copiaInvestigadores.end(); ++it)
     {
         (*it)->quitarPublicacion(this);
     }

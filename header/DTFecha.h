@@ -12,14 +12,14 @@ public:
     ~DTFecha();
   
     //Operadores
-    bool operator>=(DTFecha);
+    bool operator>=(const DTFecha &fecha) const;
     friend std::ostream &operator<<(std::ostream &os, const DTFecha &dtFecha);
 
 
     //Getters
-    int getDia();
-    int getMes();
-    int getAnio();
+    int getDia() const;
+    int getMes() const;
+    int getAnio() const;
 };
 
 #endif // DTFECHA_H
