@@ -40,7 +40,7 @@ Publicacion* coleccion_getPublicacion(std::string DOI){
 	return map_publicaciones[DOI];
 }
 
-void main() {
+int main() {
         //Parte A
         cout << "Parte A" << endl;
 
@@ -166,8 +166,8 @@ void main() {
         //Parte J
         cout << "Parte J" << endl;
 
-        DTFecha desdeFecha(1, 1, 2020);
-        set<string> publis = coleccion_getInvestigador(" 0000-0003-1234-5678")->listarPublicaciones(desdeFecha,"UML");
+        DTFecha desdeFecha2(1, 1, 2020);
+        set<string> publis2 = coleccion_getInvestigador(" 0000-0003-1234-5678")->listarPublicaciones(desdeFecha,"UML");
 
         for (set<string>::iterator pub = publis.begin(); pub != publis.end(); pub++)
         {

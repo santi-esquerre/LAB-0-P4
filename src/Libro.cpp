@@ -5,7 +5,6 @@
 Libro::Libro() : Publicacion()
 {
     this->editorial = "";
-    this->palabrasDestacadas = {};
 }
 
 Libro::Libro(const std::string &DOI, const std::string &titulo, DTFecha &fecha, const std::string &editorial, std::set<std::string> &palabrasDestacadas) : Publicacion(DOI, titulo, fecha)
