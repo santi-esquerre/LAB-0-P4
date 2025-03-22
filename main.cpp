@@ -60,13 +60,20 @@ void main() {
 
         // Libro 1
         DTFecha fecha3(20, 8, 2022);
-        set<string> keyWords1 = {"Diseno", "OOP", "Class"};
+        set<string> keyWords1;
+        keyWords1.insert("Diseno");
+        keyWords1.insert("OOP");
+        keyWords1.insert("Class");
 
         Libro* libro1 = new Libro("10.2345/def456", "Patrones de Diseno en c++", fecha3, "Software Design", keyWords1);
 
         // Libro 2
         DTFecha fecha4(20, 8, 2022);
-        set<string> keyWords2 = {"Diagramas", "UML", "Software", "Modelado"};
+        set<string> keyWords2; 
+        keyWords2.insert("Diagramas"); 
+        keyWords2.insert("UML"); 
+        keyWords2.insert("Software"); 
+        keyWords2.insert("Modelado"); 
 
         Libro* libro2 = new Libro("10.5678/mno345", "Guia de UML", fecha4, "IEEE", keyWords2);
 
@@ -80,7 +87,6 @@ void main() {
         PaginaWeb* paginaWeb = new PaginaWeb("10.3456/ghi789", "Diagramas para Principiantes", fecha5, "www.umlparaprincipiantes.com", "En esta pagina web se presenta una gui completa sobre los diagramas UML, abordando los diagramas de casos de uso, de clases, de secuencia y de actividades.");
 
         //Agregar publicaciones al conjunto
-        //TO DO: Hacerlo con set
         coleccion_guardarPublicacion(art1);
         coleccion_guardarPublicacion(art2);
         
@@ -142,18 +148,41 @@ void main() {
         //Parte H
         cout << "Parte H" << endl;
 
+        DTFecha desdeFecha(10, 12, 2023);
+        set<string> publis = coleccion_getInvestigador(" 0000-0003-1234-5678")->listarPublicaciones(desdeFecha,"UML");
+
+        for (set<string>::iterator pub = publis.begin(); pub != publis.end(); pub++)
+        {
+            cout << *pub << endl;
+        }
+
+        //Parte I
+        cout << "Parte I" << endl;
         
         Publicacion * pubAEliminar = coleccion_getPublicacion("10.4567/jkl012");
         coleccion_eliminarPublicacion(pubAEliminar);
         delete(pubAEliminar);
 
-        
+        //Parte J
+        cout << "Parte J" << endl;
 
+        DTFecha desdeFecha(1, 1, 2020);
+        set<string> publis = coleccion_getInvestigador(" 0000-0003-1234-5678")->listarPublicaciones(desdeFecha,"UML");
 
+        for (set<string>::iterator pub = publis.begin(); pub != publis.end(); pub++)
+        {
+            cout << *pub << endl;
+        }
 
+        //Parte K
+        cout << "Parte D" << endl;
 
+        // Imprimir publicaciones
+        for (list<Publicacion*>::iterator publi = publicaciones.begin(); publi != publicaciones.end(); ++publi)
+        {
+            cout << (*publi)->getDT() << endl;
+        }
 
-
-        
+        cout << "FIN" << endl;
 
 }
