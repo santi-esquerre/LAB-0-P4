@@ -8,7 +8,11 @@ PaginaWeb::PaginaWeb(const std::string &DOI, const std::string &titulo, DTFecha 
     this->contenidoExtraido = contenidoExtraido;
 }
 
-PaginaWeb::PaginaWeb() : Publicacion(){}
+PaginaWeb::PaginaWeb() : Publicacion()
+{
+    this->URL = "";
+    this->contenidoExtraido = "";
+}
 
 PaginaWeb::~PaginaWeb() {}
 
