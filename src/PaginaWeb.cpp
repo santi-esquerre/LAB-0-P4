@@ -1,6 +1,6 @@
 #include "../header/PaginaWeb.h"
 
-#pragma region CONSTRUCTORES
+#pragma region CONSTRUCTORES-DESTRUCTOR
 
 PaginaWeb::PaginaWeb(const std::string &DOI, const std::string &titulo, DTFecha &fecha, const std::string &URL, const std::string &contenidoExtraido) : Publicacion(DOI, titulo, fecha)
 {
@@ -8,11 +8,9 @@ PaginaWeb::PaginaWeb(const std::string &DOI, const std::string &titulo, DTFecha 
     this->contenidoExtraido = contenidoExtraido;
 }
 
-PaginaWeb::PaginaWeb() : Publicacion()
-{
-    this->URL = "";
-    this->contenidoExtraido = "";
-}
+PaginaWeb::PaginaWeb() : Publicacion(){}
+
+PaginaWeb::~PaginaWeb() {}
 
 #pragma endregion
 

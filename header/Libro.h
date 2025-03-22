@@ -12,7 +12,7 @@ private:
 public:
     Libro(const std::string &DOI, const std::string &titulo, DTFecha &fecha, const std::string &editorial, std::set<std::string> &palabrasDestacadas);
     Libro();
-    ~Libro() override;
+    ~Libro();
 
     std::string getEditorial();
     std::set<std::string> getPalabrasDestacadas();
@@ -20,7 +20,7 @@ public:
     void setEditorial(const std::string &editorial);
     void setPalabrasDestacadas(std::set<std::string> &palabrasDestacadas);
 
-    bool contienePalabra(const std::string &palabra) override;
+    bool contienePalabra(const std::string &palabra);
 };
 
 #endif // LIBRO_H

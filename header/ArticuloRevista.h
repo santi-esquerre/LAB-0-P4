@@ -14,7 +14,7 @@ private:
 public:
     ArticuloRevista(const std::string &DOI, const std::string &titulo, DTFecha &fecha, const std::string &revista, const std::string &extracto);
     ArticuloRevista();
-    ~ArticuloRevista() override = default;
+    ~ArticuloRevista();
 
     std::string getRevista();
     std::string getExtracto();
@@ -22,7 +22,7 @@ public:
     void setRevista(const std::string &revista);
     void setExtracto(const std::string &extracto);
 
-    bool contienePalabra(const std::string &palabra) override;
+    bool contienePalabra(const std::string &palabra);
 };
 
 #endif // ARTICULOREVISTA_H

@@ -1,6 +1,6 @@
 #include "../header/ArticuloRevista.h"
 
-#pragma region CONSTRUCTORES
+#pragma region CONSTRUCTORES-DESTRUCTOR
 
 ArticuloRevista::ArticuloRevista() : Publicacion()
 {
@@ -13,6 +13,8 @@ ArticuloRevista::ArticuloRevista(const std::string &DOI, const std::string &titu
     this->revista = revista;
     this->extracto = extracto;
 }
+
+ArticuloRevista::~ArticuloRevista() {}
 
 #pragma endregion
 
