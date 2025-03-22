@@ -20,13 +20,13 @@ public:
     ~Investigador();
 
     std::string toString();
-    std::set<std::string> listarPublicaciones(DTFecha &desde, const std::string &palabra);
+    std::set<std::string> listarPublicaciones(const DTFecha &desde, const std::string &palabra) const;
 
     // Getters
-    std::string getORCID();
-    std::string getNombre();
-    std::string getInstitucion();
-    std::set<Publicacion *> getPublicaciones();
+    std::string getORCID() const;
+    std::string getNombre() const;
+    std::string getInstitucion() const;
+    std::set<Publicacion *> getPublicaciones() const;
 
     // Setters
     void setORCID(const std::string &ORCID);
