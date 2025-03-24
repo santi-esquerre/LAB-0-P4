@@ -68,27 +68,29 @@ int main() {
         Libro* libro1 = new Libro("10.2345/def456", "Patrones de Diseno en c++", fecha3, "Software Design", keyWords1);
 
         // Libro 2
-        DTFecha fecha4(20, 8, 2022);
         set<string> keyWords2; 
         keyWords2.insert("Diagramas"); 
         keyWords2.insert("UML"); 
         keyWords2.insert("Software"); 
         keyWords2.insert("Modelado"); 
 
-        Libro* libro2 = new Libro("10.5678/mno345", "Guia de UML", fecha4, "IEEE", keyWords2);
+        Libro* libro2 = new Libro("10.5678/mno345", "Guia de UML", fecha3, "IEEE", keyWords2);
 
 
         //Parte C
         cout << "Parte C" << endl;
 
         // Página Web 1
-        DTFecha fecha5(20, 10, 2024);
+        DTFecha fecha4(20, 10, 2024);
 
-        PaginaWeb* paginaWeb = new PaginaWeb("10.3456/ghi789", "Diagramas para Principiantes", fecha5, "www.umlparaprincipiantes.com", "En esta pagina web se presenta una gui completa sobre los diagramas UML, abordando los diagramas de casos de uso, de clases, de secuencia y de actividades.");
+        PaginaWeb* paginaWeb = new PaginaWeb("10.3456/ghi789", "Diagramas para Principiantes", fecha4, "www.umlparaprincipiantes.com", "En esta pagina web se presenta una gui completa sobre los diagramas UML, abordando los diagramas de casos de uso, de clases, de secuencia y de actividades.");
 
         //Agregar publicaciones al conjunto
         coleccion_guardarPublicacion(art1);
         coleccion_guardarPublicacion(art2);
+        coleccion_guardarPublicacion(libro1);
+        coleccion_guardarPublicacion(libro2);
+        coleccion_guardarPublicacion(paginaWeb);
         
 
         //Parte D
@@ -134,7 +136,6 @@ int main() {
         coleccion_getInvestigador("0000-0001-8765-4321")->agregarPublicacion(coleccion_getPublicacion("10.1234/abc123"));
         coleccion_getInvestigador("0000-0001-8765-4321")->agregarPublicacion(coleccion_getPublicacion("10.2345/def456"));
         coleccion_getInvestigador("0000-0001-8765-4321")->agregarPublicacion(coleccion_getPublicacion("10.4567/jkl012"));
-
         // Agregar investigadores a publicaciones
         coleccion_getPublicacion("10.1234/abc123")->agregarAutor(coleccion_getInvestigador("0000-0003-1234-5678"));
         coleccion_getPublicacion("10.1234/abc123")->agregarAutor(coleccion_getInvestigador("0000-0001-8765-4321"));
@@ -149,7 +150,7 @@ int main() {
         cout << "Parte H" << endl;
 
         DTFecha desdeFecha(10, 12, 2023);
-        set<string> publis = coleccion_getInvestigador(" 0000-0003-1234-5678")->listarPublicaciones(desdeFecha,"UML");
+        set<string> publis = coleccion_getInvestigador("0000-0003-1234-5678")->listarPublicaciones(desdeFecha,"UML");
 
         for (set<string>::iterator pub = publis.begin(); pub != publis.end(); pub++)
         {
@@ -167,15 +168,15 @@ int main() {
         cout << "Parte J" << endl;
 
         DTFecha desdeFecha2(1, 1, 2020);
-        set<string> publis2 = coleccion_getInvestigador(" 0000-0003-1234-5678")->listarPublicaciones(desdeFecha,"UML");
+        set<string> publis2 = coleccion_getInvestigador("0000-0003-1234-5678")->listarPublicaciones(desdeFecha2,"UML");
 
-        for (set<string>::iterator pub = publis.begin(); pub != publis.end(); pub++)
+        for (set<string>::iterator pub = publis2.begin(); pub != publis2.end(); pub++)
         {
             cout << *pub << endl;
         }
 
         //Parte K
-        cout << "Parte D" << endl;
+        cout << "Parte K" << endl;
 
         // Imprimir publicaciones
         for (list<Publicacion*>::iterator publi = publicaciones.begin(); publi != publicaciones.end(); ++publi)
