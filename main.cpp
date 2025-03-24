@@ -184,6 +184,13 @@ int main() {
             cout << (*publi)->getDT() << endl;
         }
 
+        delete art1;
+        delete libro1;
+        delete libro2;
+        delete paginaWeb;
+        delete investigador1;
+        delete investigador2;
+
         cout << "FIN" << endl;
 
 }
