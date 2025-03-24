@@ -1,16 +1,23 @@
-CMP = g++
-OPCIONES = -std=c++98 -Wall -Iheader
-SRC = src/ArticuloRevista.cpp src/DTFecha.cpp src/Investigador.cpp src/Libro.cpp src/PaginaWeb.cpp src/Publicacion.cpp main.cpp
-OBJ = $(SRC:.cpp=.o)
-TARGET = program
+CXX = g++
+CXXFLAGS = -std=c++98 -Wall -Wextra -pedantic
+SRC_DIR = src
+HEADER_DIR = header
 
-all: $(TARGET)
+SRCS = $(wildcard $(SRC_DIR)/*.cpp)
+OBJS = $(SRCS:.cpp=.o)
 
-$(TARGET): $(OBJ)
-	$(CMP) $(OBJ) -o $(TARGET)
+EXEC = main
 
-%.o: %.cpp
-	$(CMP) $(OPCIONES) -c $< -o $@
+all: $(EXEC)
+
+$(EXEC): main.o $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(EXEC) main.o $(OBJS)
+
+main.o: main.cpp
+	$(CXX) $(CXXFLAGS) -I$(HEADER_DIR) -c main.cpp
+
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
+	$(CXX) $(CXXFLAGS) -I$(HEADER_DIR) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(SRC_DIR)/*.o *.o $(EXEC)
