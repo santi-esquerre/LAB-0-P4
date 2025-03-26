@@ -19,5 +19,8 @@ main.o: main.cpp
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -I$(HEADER_DIR) -c $< -o $@
 
+tarball: clean
+		tar -czvf 83_lab0.tar.gz $(SRC_DIR) $(HEADER_DIR) Makefile main.cpp
+
 clean:
 	rm -f $(SRC_DIR)/*.o *.o $(EXEC)

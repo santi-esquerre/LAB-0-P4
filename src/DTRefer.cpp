@@ -17,7 +17,7 @@ DTRefer::DTRefer()
     this->autores = std::set<std::string>();
 }
 
-DTRefer::~DTRefer() {};
+DTRefer::~DTRefer() {}
 
 // Getters
 
